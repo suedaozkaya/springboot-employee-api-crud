@@ -1,53 +1,42 @@
-package com.mtco.domain;
+package com.mtco.dto.request;
 
-import java.time.LocalDateTime;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "employee_tbl")
-public class Employee {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class UserRegisterDTO {
 	
 	@NotNull(message = "Name cannot be null!")
 	@NotBlank(message = "Name cannot be white space!")
 	@Size(min = 2, max = 50, message = "Name must be between {min} and {max} long.")
-	@Column(nullable = false, length = 50)
 	private String name;
 	
-	@Column
+	@Min(value = 16, message = "Age should not be less than 16.")
+	@Max(value = 100, message = " Age should not ve greater than 100.")
 	private Integer age;
 	
-	@Column(nullable = false, length = 50, unique = true)
 	@Email(message = "Please provide a valid email!")
 	private String email;
 	
-	@Column
-	private String phoneNumber;
+	@Size(min = 4, max = 20, message = "Please provide a correct size for password.")
+	@NotNull
+	@NotBlank
+	private String password;
 	
-	private LocalDateTime createDate = LocalDateTime.now();
+	@Size(min = 14, max = 14)
+    @NotBlank(message = "Please provide your phone number.")
+	private String phoneNumber;
 	
 }
