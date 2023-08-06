@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mtco.dto.request.UserRegisterDTO;
 import com.mtco.dto.request.UserUpdateDTO;
 import com.mtco.dto.response.UserDTO;
-import com.mtco.service.concretes.UserServiceImpl;
+import com.mtco.service.abstracts.UserService;
 
 import lombok.AllArgsConstructor;
 
@@ -31,7 +30,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping("api/user")
 public class UserController {
 	
-	private UserServiceImpl userService;
+	private UserService userService;
 	
 	/*public UserController(UserServiceImpl userService) {
 		this.userService = userService;
