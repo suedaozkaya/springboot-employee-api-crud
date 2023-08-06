@@ -1,8 +1,0 @@
-Backend Development with Java and Spring:
-Task: Develop a simple RESTful API using Java and the Spring framework. 
-The API should have endpoints to create, read, update, and delete (CRUD) users. 
-You can use a simple in-memory database or a local instance of MySQL for this task.
-
-Database Management with MySQL:
-Task: Design a database schema for storing user information. 
-Implement this schema in MySQL and write SQL queries to perform CRUD operations on the User table.
